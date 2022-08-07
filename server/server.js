@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
@@ -35,13 +37,19 @@ const startApolloServer = async (typeDefs, resolvers) => {
   server.applyMiddleware({ app });
   
   db.once('open', () => {
-    app.get('/seedDatabase', async (req, res) => {
+    app.post('/seedDatabase', async (req, res) => {
+      if(req.body.SEEDPASS === process.env.SEEDPASS){
       await Tech.deleteMany({});
 
-  const technologies = await Tech.insertMany(techData);
+      const technologies = await Tech.insertMany(techData);
 
-  console.log('Technologies seeded!');
-  res.json(technologies);
+      console.log('Technologies seeded!');
+      res.json(technologies);
+
+      }
+      else{
+        res.json({test: "Turtle dies"});
+      }
     });
 
     app.listen(PORT, () => {
@@ -49,10 +57,6 @@ const startApolloServer = async (typeDefs, resolvers) => {
       console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     });
 
-
-
-  })
-  };
   
 // Call the async function to start the server
   startApolloServer(typeDefs, resolvers);
