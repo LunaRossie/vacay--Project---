@@ -19,7 +19,7 @@ const adoptSchema = new Schema({
   },
 });
 
-const adopt= model('Adopt', adoptSchema);
+const matchup= model('Matchup', matchupSchema);
 
 
 
