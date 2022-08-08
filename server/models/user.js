@@ -11,13 +11,20 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true
-    // todo ?? validate ?? lookup later
+    unique: true,
+    match: [/.+@.+\..+/, 'Must match an email address!'],
+    // .+ at least one of any character (1+ wildcard)
+    // @ is just an @ symbol
+    // \. means escaped period or (just a period)
+    // .+             @       .+                \.            .+
+    // 1+ wildcard    @       1+ wildcard       period        1+ wildcard
+    // turtle         @       turtle            .             com
   },
   password: {
     type: String,
-    required: true
-    // todo ?? validate ?? lookup later
+    required: true,
+    minlength: 6,
+    macth: [/[a-zA-Z0-9!-]+/i, "Must use a-z or 0-9 or ! or -"]
   }
 });
 
@@ -25,7 +32,7 @@ const userSchema = new Schema({
 userSchema.pre('save', function(next) {
   var user = this;
   console.log({hookThis: user});
-  
+
     // only hash the password if it has been modified (or is new)
     if (!user.isModified('password')) return next();
 
@@ -48,11 +55,14 @@ userSchema.pre('save', function(next) {
 //   next();
 // })
 
-UserSchema.methods.comparePassword = function(candidatePassword, cb) {
-  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-      if (err) return cb(err);
-      cb(null, isMatch);
-  });
+UserSchema.methods.comparePassword = async function(candidatePassword) {
+  try{
+    const isMatch = await bcrypt.compare(candidatePassword, this.password);
+    return isMatch;
+  }catch(err){
+    console.log(err);
+    return false;
+  }
 };
 
 const User = model('User', userSchema);
