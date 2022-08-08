@@ -1,0 +1,12 @@
+[
+    {
+      "name": "Turtle Man",
+      "email": "tutle@turtle.com",
+      "password": "password123"
+    },
+    {
+        "name": "Turtle Woman",
+        "email": "turtle@turtle.com",
+        "password": "password1234"
+      }
+]
