@@ -1,3 +1,10 @@
+const Tech = require('./Tech');
+const Matchup = require ('./Matchup');
+
+const User = require ('./User');
+
+module.exports = {Tech, Matchup, User};
+
 // const User = require('./User');
 // const Review = require('./Review');
 // const Adopt = require('./Adopt');
