@@ -38,18 +38,20 @@ const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
   
-  db.once('open'), () => {
+  db.once('open', () => {
     app.post('/seedDatabase', async (req, res) => {
+      // secure my seed route so only authorized users can do it!!!
+      // SEEDPASS=something inside of your env file or as a config variable in heroku
       if(req.body.SEEDPASS === process.env.SEEDPASS){
-      await Tech.deleteMany({});
-      await User.deleteMany({});
+        await Tech.deleteMany({});
+        await User.deleteMany({});
 
-      const technologies = await Tech.insertMany(techData);
-      const users = await User.insertMany(userData);
-
-      console.log('All data seeded!');
-      res.json(technologies);
-
+        const technologies = await Tech.insertMany(techData);
+        const users = await User.insertMany(userData);
+      
+        console.log('All data seeded!');
+        res.json(technologies);
+      
       }
       else{
         res.json({test: "Turtle dies"});
@@ -60,8 +62,9 @@ const startApolloServer = async (typeDefs, resolvers) => {
       console.log(`API server running on port ${PORT}!`);
       console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     });
+  })
+  };
 
   
 // Call the async function to start the server
-
   startApolloServer(typeDefs, resolvers);

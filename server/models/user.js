@@ -24,7 +24,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minlength: 6,
-    macth: [/[a-zA-Z0-9!-]+/i, "Must use a-z or 0-9 or ! or -"]
+    match: [/[a-zA-Z0-9!-]+/i, "Must use a-z or 0-9 or ! or -"]
   }
 });
 
@@ -55,7 +55,7 @@ userSchema.pre('save', function(next) {
 //   next();
 // })
 
-UserSchema.methods.comparePassword = async function(candidatePassword) {
+userSchema.methods.comparePassword = async function(candidatePassword) {
   try{
     const isMatch = await bcrypt.compare(candidatePassword, this.password);
     return isMatch;
