@@ -38,7 +38,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
   
-  db.once('open', () => {
+  db.once('open'), () => {
     app.post('/seedDatabase', async (req, res) => {
       if(req.body.SEEDPASS === process.env.SEEDPASS){
       await Tech.deleteMany({});
@@ -63,4 +63,5 @@ const startApolloServer = async (typeDefs, resolvers) => {
 
   
 // Call the async function to start the server
+
   startApolloServer(typeDefs, resolvers);

@@ -25,7 +25,7 @@ const handleInputChange = (event) => {
     formValues[name] = value;
     // set state
     setFormState(formValues);
-    }
+    
 }
 
   const userList = data?.users || [];
