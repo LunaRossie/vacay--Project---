@@ -36,16 +36,16 @@ const Home = () => {
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
         <h1>Welcome to Tech Adoption!</h1>
-        <Link to="/login">{ state.logged_in ? "Profile" : "Login" }</Link><br />
+        {/* <Link to="/login">{ state.logged_in ? "Profile" : "Login" }</Link><br /> */}
         <a href="/logout" onClick={logout}>Logout</a><br/>
-        { state.logged_in ? (
+        {/* { state.logged_in ? (
           <></>
-        ) : (
+        ) : ( */}
           <>
             <Link to="/signup">Sign Up</Link>
             <br />
           </>
-        )}
+        {/* )} */}
         
       </div>
     </div>
