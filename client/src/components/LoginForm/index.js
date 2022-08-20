@@ -7,7 +7,7 @@ import { useUser } from '../../context/UserContext';
 import reducer from '../../context/reducers';
 
 const LoginForm = ({setAppState}) => {
-  const [login, { error, data }] = useMutation(LOGIN_USER), 
+  const [login, { error, data }] = useMutation(LOGIN_USER);
   let navigate = useNavigate();
   const initialState = useUser();
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -29,13 +29,13 @@ const LoginForm = ({setAppState}) => {
   const onFormSubmit = async(event) => {
     event.preventDefault();
     console.log(formState);
-  };
+  
   console.log(formState);
   const result = await login({
     variables: {...formState}
   });
   console.log(result);
-  Auth.login(appState, setAppState, result.data.login.token, result.data, navigate);
+  Auth.login(dispatch, result.data.login.token, result.data, navigate);
   }
   return (
     <form onSubmit={onFormSubmit}>
@@ -58,6 +58,6 @@ const LoginForm = ({setAppState}) => {
       <button type="submit" className="btn btn-primary">Login</button>
     </form>
   );
-
+  }
 export default LoginForm;
 

@@ -2,29 +2,28 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import LoginForm from '../components/LoginForm';
 import {QUERY_ME} from '../utils/queries';
-import { useEffect }from 'react';
+import { useEffect, useReducer }from 'react';
+import { useUser } from '../context/UserContext';
+import reducer from '../context/reducers';
+import {LOGIN, LOGOUT} from '../context/actions';
 
 
-const Login = (props => {
-    console.log(props);
-    const {appState, setAppState} = props;
+const Login = () => {
+    const initialState = useUser();
+    const [state, dispatch] = useReducer(reducer, initialState);
     const { loading, data } = useQuery(QUERY_ME, {
     fetchPolicy: "no-cache"
   });
 
   const me = data?.me || {};
 
-useEffect( () => {
-  if(me && me.hasOwnProperty("_id")){
-    if(appState.user === null || me.id !== appState.user._id ){
-      setAppState({
-        ...appState,
-        user: {...me},
-        logged_in: true
-      });
+  useEffect( () => {
+    if(me && me.hasOwnProperty("_id")){
+      if(state.user === null || me._id !== state.user._id ){
+        dispatch({type: LOGIN, payload: me});
+      }
     }
-  }
-});
+  });
 
 return (
     <div className="card bg-white card-rounded w-50">
@@ -45,7 +44,7 @@ return (
                     </ul>
                 ) : (
                     <>{/*Not Logged in - need form*/}
-                       <LoginForm appState={appState} setAppState={setAppState} />
+                       <LoginForm />
                     </>
                 )}
             </>
@@ -55,3 +54,4 @@ return (
 );
 };
 
+export default Login;
