@@ -45,7 +45,7 @@ const typeDefs = gql`
     users: [User]
     user(_id: String!): User
   }
-  me: User
+  type User
     test: Dog
     tomatoMyself: Tomato
   }
