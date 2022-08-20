@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const matchupSchema = new Schema({
+const adoptionSchema = new Schema({
   tech1: {
     type: String,
     required: true,
@@ -19,11 +19,11 @@ const matchupSchema = new Schema({
   },
 });
 
-const matchup= model('Matchup', matchupSchema);
+const adoption= model('Adoption', adoptionSchema);
 
 
 
-module.exports = matchup;
+module.exports = adoption;
 
 // const { Model, DataTypes } = require('sequelize');
 // const sequelize = require('../config/connection.js');

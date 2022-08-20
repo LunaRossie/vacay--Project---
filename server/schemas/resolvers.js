@@ -1,4 +1,4 @@
-const {User, Tech, Matchup } = require('../models');
+const {User, Tech, Adoption } = require('../models');
 const { ObjectId } = require("mongoose"). Types;
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require("../utils/auth");
@@ -8,9 +8,9 @@ const resolvers = {
     tech: async () => {
       return Tech.find({});
     },
-    matchups: async (parent, { _id }) => {
+    adoption: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
-      return Matchup.find(params);
+      return Adoption.find(params);
     },
 
     users: async () => {
@@ -69,12 +69,12 @@ const resolvers = {
     }
   },
   Mutation: {
-    createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
+    createAdoption: async (parent, args) => {
+      const adoption = await Adoption.create(args);
+      return adoption;
     },
     createVote: async (parent, { _id, techNum }) => {
-      const vote = await Matchup.findOneAndUpdate(
+      const vote = await Adoption.findOneAndUpdate(
         { _id },
         { $inc: { [`tech${techNum}_votes`]: 1 } },
         { new: true }
