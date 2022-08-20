@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { 
-  ApolloClient, 
+import {
+  ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink} from '@apollo/client';
+  createHttpLink
+} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
+import UserForm from './pages/UserForm';
 import Users from './pages/Users';
 import Adoption from './pages/Adoption';
 import Vote from './pages/Vote';
@@ -42,41 +44,40 @@ function App() {
       <Router>
         <div className="flex-column justify-center align-center min-100-vh bg-primary">
           <Routes>
-            <Route 
-              path="/" 
+            <Route
+              path="/"
               element={<Home />}
             />
-             <Route 
-                path="/signup" 
-                element={<UserForm />}
-              />
-            <Route 
-              path="/users" 
+            <Route
+              path="/signup"
+              element={<UserForm />}
+            />
+            <Route
+              path="/users"
               element={<Users />}
             />
-            <Route 
-              path="/login" 
+            <Route
+              path="/login"
               element={(
-              <Login />
-      )}
+                <Login />
+              )}
             />
-            <Route 
-              path="/adoption" 
+            <Route
+              path="/adoption"
               element={<Adoption />}
             />
-            <Route 
-              path="/adoption/:id" 
+            <Route
+              path="/adoption/:id"
               element={<Vote />}
             />
-            <Route 
+            <Route
               path="*"
               element={<NotFound />}
             />
           </Routes>
         </div>
-        </UserProvider>
-      </Router>
-    </ApolloProvider>
+    </Router>
+    </ApolloProvider >
   );
 }
 

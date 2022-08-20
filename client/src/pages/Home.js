@@ -5,7 +5,7 @@ import { QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import { useUser } from '../context/UserContext';
 import reducer from '../context/reducers';
-import {LOGIN, LOGOUT} from '../context/actions';
+import {LOGIN} from '../context/actions';
 
 const Home = () => {
   const initialState = useUser();
@@ -19,7 +19,7 @@ const Home = () => {
 
   
 
-  const { loading: loadingMe, data: dataMe } = useQuery(QUERY_ME, {
+  const { data: dataMe } = useQuery(QUERY_ME, {
     fetchPolicy: "no-cache"
   });
 

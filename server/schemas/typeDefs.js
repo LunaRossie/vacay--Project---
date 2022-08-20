@@ -41,13 +41,11 @@ const typeDefs = gql`
   type Query {
     tech: [Tech]
     adoption(_id: String): [Adoption]
-
+  me: Dog
+  tomatoMyself: Tomato
+  test: Turtle
     users: [User]
     user(_id: String!): User
-  }
-  type User
-    test: Dog
-    tomatoMyself: Tomato
   }
 
   type Mutation {

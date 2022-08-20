@@ -7,10 +7,10 @@ import { useUser } from '../../context/UserContext';
 import reducer from '../../context/reducers';
 
 const LoginForm = () => {
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN_USER);
   let navigate = useNavigate();
   const initialState = useUser();
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [dispatch] = useReducer(reducer, initialState);
 
   const [formState, setFormState] = useState({
     email: "turtle@turtle.com",
