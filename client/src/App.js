@@ -9,7 +9,7 @@ import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
 import Animal from './pages/Animal';
 import Users from './pages/Users';
-import Matchup from './pages/Matchup';
+import Adoption from './pages/Adoption';
 import Vote from './pages/Vote';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
@@ -37,10 +37,7 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [appState, setAppState] = useState({
-    user:null,
-    logged_in: false
-  });
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -48,8 +45,12 @@ function App() {
           <Routes>
             <Route 
               path="/" 
-              element={<Home appState={appState} setAppState={setAppState}/>}
+              element={<Home />}
             />
+             <Route 
+                path="/signup" 
+                element={<UserForm />}
+              />
             <Route 
               path="/users" 
               element={<Users />}
@@ -57,19 +58,19 @@ function App() {
             <Route 
               path="/login" 
               element={(
-              <Login appState={appState} setAppState={setAppState}/>
+              <Login />
       )}
             />
             <Route 
-              path="/matchup" 
-              element={<Matchup />}
+              path="/adoption" 
+              element={<Adoption />}
             />
             <Route 
               path="/animal" 
               element={<Animal />}
             />
             <Route 
-              path="/matchup/:id" 
+              path="/adoption/:id" 
               element={<Vote />}
             />
             <Route 
@@ -78,6 +79,7 @@ function App() {
             />
           </Routes>
         </div>
+        </UserProvider>
       </Router>
     </ApolloProvider>
   );
