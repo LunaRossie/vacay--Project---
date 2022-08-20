@@ -7,7 +7,6 @@ import {
   createHttpLink} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
-import Animal from './pages/Animal';
 import Users from './pages/Users';
 import Adoption from './pages/Adoption';
 import Vote from './pages/Vote';
@@ -64,10 +63,6 @@ function App() {
             <Route 
               path="/adoption" 
               element={<Adoption />}
-            />
-            <Route 
-              path="/animal" 
-              element={<Animal />}
             />
             <Route 
               path="/adoption/:id" 

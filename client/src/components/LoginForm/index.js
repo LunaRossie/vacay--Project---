@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
 import reducer from '../../context/reducers';
 
-const LoginForm = ({setAppState}) => {
+const LoginForm = () => {
   const [login, { error, data }] = useMutation(LOGIN_USER);
   let navigate = useNavigate();
   const initialState = useUser();
