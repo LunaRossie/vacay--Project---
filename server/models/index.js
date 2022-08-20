@@ -1,9 +1,9 @@
 const Tech = require('./Tech');
-const Matchup = require('./Matchup');
+const Adoption = require('./Adoption');
 
 const User = require('./User');
 
-module.exports = {Tech, Matchup, User};
+module.exports = {Tech, Adoption, User};
 
 // const User = require('./User');
 // const Review = require('./Review');

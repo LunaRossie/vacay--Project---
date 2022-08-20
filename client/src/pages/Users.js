@@ -79,9 +79,9 @@ const handleInputChange = (event) => {
             />
         </form>
       <div className="card-footer text-center m-3">
-        <h2>Ready to create a new matchup?</h2>
+        <h2>Ready to create a new adoption site?</h2>
         <Link to="/matchup">
-          <button className="btn btn-lg btn-danger">Create Matchup!</button>
+          <button className="btn btn-lg btn-danger">Create Adoption!</button>
         </Link>
       </div>
     </div>

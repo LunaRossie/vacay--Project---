@@ -9,9 +9,9 @@ export const QUERY_TECH = gql`
   }
 `;
 
-export const QUERY_MATCHUPS = gql`
-  query matchups($_id: String) {
-    matchups(_id: $_id) {
+export const QUERY_ADOPTIONS = gql`
+  query adoptions($_id: String) {
+    adoptions(_id: $_id) {
       _id
       tech1
       tech2
@@ -32,7 +32,7 @@ export const QUERY_USERS = gql`
   `;
   export const QUERY_ME = gql`
   query me {
-    me {
+    meAdd to {
       _id
       name
       email

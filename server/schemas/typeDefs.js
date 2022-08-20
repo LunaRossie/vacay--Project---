@@ -6,7 +6,7 @@ const typeDefs = gql`
     name: String!
   }
 
-  type Matchup {
+  type Adoption {
     _id: ID!
     tech1: String!
     tech2: String!
@@ -21,24 +21,41 @@ const typeDefs = gql`
     # no password field, need to keep passwords hidden
   }
   type TokenUser {
-    token: String
+    token: ID!
     user: User
+  }
+  type Dog{
+    _id: ID!
+    name: String
+  }
+
+  type Tomato {
+    turtle: Turtle
+    user: User
+  }
+  type Turtle{
+    name: String
+    attributes: [String]
   }
 
   type Query {
     tech: [Tech]
-    matchups(_id: String): [Matchup]
+    adoption(_id: String): [Adoption]
 
     users: [User]
     user(_id: String!): User
   }
-
+  me: User
+    test: Dog
+    tomatoMyself: Tomato
+  }
 
   type Mutation {
-    createMatchup(tech1: String!, tech2: String!): Matchup
-    createVote(_id: String!, techNum: Int!): Matchup
+    createAdoption(tech1: String!, tech2: String!): Adoption
+    createVote(_id: String!, techNum: Int!): Adoption
 
-    createUser(name: String!, email: String!, password: String!): User
+    createUser(name: String!, email: String!, password: String!): TokenUser
+    createUserNoToken(name: String!, email: String!, password: String!): User
     login(email: String!, password: String!): TokenUser
   }
 `;
