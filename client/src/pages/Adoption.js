@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_TECH } from '../utils/queries';
-import { CREATE_ADOPTION } from '../utils/adoption';
+import { CREATE_ADOPTION } from '../utils/mutations';
 
 const Adoption = () => {
   const { loading, data } = useQuery(QUERY_TECH);

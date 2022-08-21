@@ -9,7 +9,7 @@ import reducer from '../context/reducers';
 export default function UserForm(props){
   const [createUser] = useMutation(CREATE_USER);
   const initialState = useUser();
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [dispatch] = useReducer(reducer, initialState);
 
   const navigate = useNavigate();
 

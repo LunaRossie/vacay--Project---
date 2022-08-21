@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import LoginForm from '../components/LoginForm';
 import {QUERY_ME} from '../utils/queries';
 import { useEffect, useReducer }from 'react';
 import { useUser } from '../context/UserContext';
 import reducer from '../context/reducers';
-import {LOGIN, LOGOUT} from '../context/actions';
+import {LOGIN} from '../context/actions';
 
 
 const Login = () => {
