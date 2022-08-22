@@ -6,7 +6,7 @@ Table of Contents
 # Installation and Usage
 # Github 
 # License
-# Deployed Site
+# Heroku
 # Video Link
 # Questions
 # Project Members
@@ -14,7 +14,7 @@ Table of Contents
 
 ## Description
 
-
+Ruff Life Adoption Center is a non profit and charitable organization. 
 
 
 ## Technologies
@@ -50,7 +50,8 @@ The project was created with:
 
 ## Github repo
 
-
+https://github.com/LunaRossie/vacay--Project---
+https://lunarossie.github.io/vacay--Project---/
 
 
 ## License
@@ -58,18 +59,17 @@ The project was created with:
 This project is licensed under MIT.
 
 
-## Deployed Site
+## Heroku
 
-
+https://git.heroku.com/frozen-reef-45081.git
 
 ## Video Link
 
 
 
-
 ## Questions
 
-If you have any questions regarding the project, please reach out via email "Terminalbash2022@outlook.com". 
+If you have any questions regarding the project, please reach out via email "Terminalbash2022@outlook.com". https://github.com/LunaRossie/vacay--Project---
 
 
 ## Project Members
