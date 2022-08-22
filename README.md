@@ -72,6 +72,10 @@ https://git.heroku.com/frozen-reef-45081.git
 
 ## Future Improvements
 
+* Adding mapping capabilities and feature. 
+* Adding Vet Services such as; Wellness Clinic & mobile Clinic. 
+* Adding Programs such as; Pet Food Banks and Domestic Abuse Project.
+
 
 ## Questions
 
