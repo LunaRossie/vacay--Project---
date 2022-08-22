@@ -59,6 +59,9 @@ const Home = () => {
   //        <li class="nav-item">
   // //         <a class="nav-link" href="#">Charitable Donations</a>
   // //         </li>
+  //         <li class="nav-item">
+  // // //       <a class="nav-link" href="#">Contact Us</a>
+  // // //       </li>
   //         <li class="nav-item dropdown">
   //           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
   //             Dropdown link
@@ -66,7 +69,7 @@ const Home = () => {
   //           <ul class="dropdown-menu">
   //             <li><a class="dropdown-item" href="#">Who We Are</a></li>
   //             <li><a class="dropdown-item" href="#">Support Us</a></li>
-  //             <li><a class="dropdown-item" href="#">Lost and found</a></li>
+  //             <li><a class="dropdown-item" href="#">Free Resources</a></li>
   //           </ul>
   //         </li>
   //       </ul>
